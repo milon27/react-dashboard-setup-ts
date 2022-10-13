@@ -3,3 +3,7 @@
 ### how to run
 * update .env file based
 * npm run dev [to run in developement]
+
+### screenshot
+
+![](screenshot.png)
