@@ -1,16 +1,15 @@
 import React, { createContext, useState } from 'react'
-import IUser from '../models/User'
+import { UserLoading, UserStateType } from '../models/User'
 
 interface iState {
-    user?: IUser | null
-    setUser: React.Dispatch<React.SetStateAction<IUser | undefined | null>>
+    user: UserStateType
+    setUser: React.Dispatch<React.SetStateAction<UserStateType>>
 }
 
 export const StateContext = createContext<iState>({} as iState)
 
 const MainContext = (props: React.PropsWithChildren<any>) => {
-    const [user, setUser] = useState<IUser | undefined | null>(undefined) //undefined means loading | null means not logged in
-
+    const [user, setUser] = useState<UserStateType>(UserLoading)
 
     const global_state: iState = {
         user, setUser

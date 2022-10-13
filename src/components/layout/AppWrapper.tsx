@@ -2,7 +2,7 @@ import { PropsWithChildren, useContext, useEffect } from 'react'
 import { StateContext } from '../../utils/context/MainContext';
 import useMyQuery from '../../utils/hooks/UseMyQuery';
 import IResponse from '../../utils/models/Response';
-import IUser from '../../utils/models/User';
+import IUser, { UserLoading } from '../../utils/models/User';
 import MyLoadingSreen from './MyLoadingSreen';
 
 export default function AppWrapper(props: PropsWithChildren<any>) {
@@ -21,7 +21,7 @@ export default function AppWrapper(props: PropsWithChildren<any>) {
         }</>
     }
     // loading
-    if (user === undefined || loading === true) {
+    if (user === UserLoading || loading === true) {
         return (<MyLoadingSreen />);
     }
     //done

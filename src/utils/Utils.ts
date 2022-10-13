@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { format } from 'date-fns'
-import IUser from './models/User'
+import { UserNotLoggedIn, UserStateType } from './models/User'
 
 const Utils = {
-    logOut: async (setUser: React.Dispatch<React.SetStateAction<IUser | null | undefined>>) => {
+    logOut: async (setUser: React.Dispatch<React.SetStateAction<UserStateType>>) => {
         await axios.get('auth/logout')
-        setUser(null)
+        setUser(UserNotLoggedIn)
     },
     isValidEmail: (email: string) => {
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
