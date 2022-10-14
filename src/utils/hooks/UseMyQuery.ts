@@ -19,7 +19,7 @@ const useMyQuery = <T>(url: string, init: T) => {
             }
         };
         load();
-    }, []);
+    });
 
     return { data, error, loading };
 };
